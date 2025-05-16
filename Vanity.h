@@ -24,6 +24,8 @@
 #include "GPU/GPUEngine.h"
 #ifdef WIN64
 #include <Windows.h>
+#else
+#include <pthread.h>
 #endif
 
 #define CPU_GRP_SIZE 1024

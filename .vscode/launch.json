@@ -1,0 +1,28 @@
+{
+    "version": "0.2.0",
+    "configurations": [
+        {
+            "name": "(lldb) 启动",
+            "type": "cppdbg",
+            "request": "launch",
+            "program": "${workspaceFolder}/VanitySearch",
+            "args": ["-test"],
+            "stopAtEntry": false,
+            "cwd": "${workspaceFolder}", // 改用workspaceFolder而不是fileDirname
+            "environment": [],
+            "externalConsole": false,
+            "MIMode": "lldb",
+            "setupCommands": [           // 添加LLDB设置命令
+                {
+                    "description": "为 lldb 启用整齐打印",
+                    "text": "settings set target.print-object-description true",
+                    "ignoreFailures": true
+                }
+            ],
+            "preLaunchTask": "build",    // 添加预启动任务
+            "sourceFileMap": {           // 添加源文件映射
+                "${workspaceFolder}": "${workspaceFolder}"
+            }
+        }
+    ]
+}

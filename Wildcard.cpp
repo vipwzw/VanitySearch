@@ -31,7 +31,10 @@ loopStart:
 
     switch (*p) {
     case '?':
-      if (*s == '.') goto starCheck;
+      if (*s == '.') {
+        pattern++;
+        goto starCheck;
+      }
       break;
 
     case '*':

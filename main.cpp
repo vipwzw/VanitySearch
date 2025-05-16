@@ -24,6 +24,7 @@
 #include <stdexcept>
 #include "hash/sha512.h"
 #include "hash/sha256.h"
+#include <gtest/gtest.h>
 
 #define RELEASE "1.19"
 
@@ -406,6 +407,9 @@ int main(int argc, char* argv[]) {
     if (strcmp(argv[a], "-gpu")==0) {
       gpuEnable = true;
       a++;
+    } else if (strcmp(argv[a], "-test")==0) {
+        testing::InitGoogleTest(&argc, argv);
+        return RUN_ALL_TESTS();
     } else if (strcmp(argv[a], "-gpuId")==0) {
       a++;
       getInts("gpuId",gpuId,string(argv[a]),',');
